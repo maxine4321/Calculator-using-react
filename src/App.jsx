@@ -24,7 +24,8 @@ function App() {
   
 
   return (
-    <div className="flex flex-col bg-gradient-to-r from-emerald-200 via-emerald-400 to-sky-400  items-center  w-fit h-800 p-5 justify-center">
+    <div className="flex flex-col h-screen w-screen justify-center items-center">
+<div className="flex flex-col bg-gradient-to-b from-emerald-100 via-emerald-200 to-blue-300  h-[600px] p-5 justify-between">
       <div className="mb-4 w-64 p-4">
         <input
           type="text"
@@ -34,7 +35,7 @@ function App() {
         />
       </div>
 
-      <div className="grid grid-cols-4 gap-2 w-64 h-50">
+      <div className="grid grid-cols-4 gap-3 w-64 h-50 justify-end ">
         <CalculatorButton Title={"CE"}onpress={()=>handleAC()}/>
         <CalculatorButton Title={"x"}onpress={()=>handleClear()}/>
         <CalculatorButton Title={"/"} onpress={()=>handleClick("/")}/>
@@ -50,12 +51,14 @@ function App() {
         <CalculatorButton Title={"1"} onpress={()=>handleClick("1")}/>
         <CalculatorButton Title={"2"} onpress={()=>handleClick("2")}/>
         <CalculatorButton Title={"3"} onpress={()=>handleClick("3")}/>
-        <div className="row-span-2 flex flex-row"><CalculatorButton Title={"="} onpress={()=>handleCaculate()}/></div>
+        <div className="row-span-2 flex flex-row"><CalculatorButton Title={"="} onpress={()=>handleCaculate()} accent={true}/></div>
         <div className="col-span-2"><CalculatorButton Title={"0"} onpress={()=>handleClick("0")}/></div>
         <CalculatorButton Title={"."} onpress={()=>handleClick(".")}/>
        
       </div>
     </div>
+    </div>
+    
   );
 }
 
