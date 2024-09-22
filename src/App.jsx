@@ -3,19 +3,21 @@ import CalculatorButton from "./components/CalculatorButton";
 
 function App() {
   const [input, setInput] = useState("");
+  const [result,setResult]=useState("");
   const handleClick = (value) => {
     setInput((prev) => prev + value);
   };
 
   const handleAC = () => {
     setInput("");
+    setResult("");
   };
 
   const handleCaculate = () => {
     try {
-      setInput(eval(input).toString());
+      setResult(eval(input).toString());
     } catch (error) {
-      setInput("error");
+      setResult("error");
     }};
 
     const handleClear = () => {
@@ -26,13 +28,9 @@ function App() {
   return (
     <div className="flex flex-col h-screen w-screen justify-center items-center">
 <div className="flex flex-col bg-gradient-to-b from-emerald-100 via-emerald-200 to-blue-300  h-[600px] p-5 justify-between">
-      <div className="mb-4 w-64 p-4">
-        <input
-          type="text"
-          value={input}
-          className="w-full  text-right bg-transparent"
-          readOnly
-        />
+      <div className="mb-4 w-64 p-4 flex flex-col items-end">
+        <div className="text-lg font-regular text-gray-500">{input}</div>
+        <div className="text-4xl font-semibold">{result}</div>
       </div>
 
       <div className="grid grid-cols-4 gap-3 w-64 h-50 justify-end ">
